@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#18181b"/>
+  <g transform="translate(100, 100)">
+    <rect x="50" y="50" width="600" height="400" rx="10" fill="#27272a"/>
+    <rect x="80" y="80" width="200" height="150" rx="5" fill="#3f3f46"/>
+    <rect x="320" y="80" width="200" height="150" rx="5" fill="#3f3f46"/>
+    <rect x="150" y="280" width="300" height="120" rx="10" fill="#3f3f46"/>
+    <circle cx="200" cy="340" r="30" fill="#18181b" stroke="#f97316" stroke-width="3"/>
+    <rect x="380" y="300" width="100" height="80" rx="5" fill="#52525b"/>
+    <text x="300" y="520" text-anchor="middle" fill="#f97316" font-size="24" font-weight="bold">TF-100 Arctic - Интерьер</text>
+  </g>
+</svg>

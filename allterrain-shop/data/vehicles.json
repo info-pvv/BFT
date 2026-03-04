@@ -11,9 +11,9 @@
         "capacity": "2 человека + 200 кг груза"
       },
       "images": [
-        "/images/vehicles/tf-100-arctic-front.jpg",
-        "/images/vehicles/tf-100-arctic-side.jpg",
-        "/images/vehicles/tf-100-arctic-interior.jpg"
+        "/images/vehicles/tf-100-arctic-front.svg",
+        "/images/vehicles/tf-100-arctic-side.svg",
+        "/images/vehicles/tf-100-arctic-interior.svg"
       ],
       "category": "light"
     },
@@ -28,9 +28,9 @@
         "capacity": "4 человека + 500 кг груза"
       },
       "images": [
-        "/images/vehicles/tf-500-hunter-front.jpg",
-        "/images/vehicles/tf-500-hunter-side.jpg",
-        "/images/vehicles/tf-500-hunter-rear.jpg"
+        "/images/vehicles/tf-500-hunter-front.svg",
+        "/images/vehicles/tf-500-hunter-side.svg",
+        "/images/vehicles/tf-500-hunter-rear.svg"
       ],
       "category": "medium"
     },
@@ -45,10 +45,10 @@
         "capacity": "8 человек + 1000 кг груза"
       },
       "images": [
-        "/images/vehicles/tf-1000-titan-front.jpg",
-        "/images/vehicles/tf-1000-titan-side.jpg",
-        "/images/vehicles/tf-1000-titan-interior.jpg",
-        "/images/vehicles/tf-1000-titan-action.jpg"
+        "/images/vehicles/tf-1000-titan-front.svg",
+        "/images/vehicles/tf-1000-titan-side.svg",
+        "/images/vehicles/tf-1000-titan-interior.svg",
+        "/images/vehicles/tf-1000-titan-action.svg"
       ],
       "category": "heavy"
     }
