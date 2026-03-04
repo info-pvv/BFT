@@ -1,0 +1,56 @@
+{
+  "vehicles": [
+    {
+      "id": 1,
+      "name": "TF-100 Arctic",
+      "price": 4500000,
+      "description": "Легкий вездеход для арктических условий. Идеально подходит для охоты, рыбалки и экспедиций в условиях крайнего севера. Оснащен усиленной подвеской и подогревом кабины.",
+      "specs": {
+        "engine": "Rotax 900 ACE Turbo, 115 л.с.",
+        "weight": "650 кг",
+        "capacity": "2 человека + 200 кг груза"
+      },
+      "images": [
+        "/images/vehicles/tf-100-arctic-front.jpg",
+        "/images/vehicles/tf-100-arctic-side.jpg",
+        "/images/vehicles/tf-100-arctic-interior.jpg"
+      ],
+      "category": "light"
+    },
+    {
+      "id": 2,
+      "name": "TF-500 Hunter",
+      "price": 7200000,
+      "description": "Средний вездеход повышенной проходимости. Предназначен для работы в труднодоступных местах, геологоразведки и транспортировки грузов. Гусеничная платформа обеспечивает превосходную проходимость.",
+      "specs": {
+        "engine": "Yamaha 450 DOHC, 180 л.с.",
+        "weight": "1200 кг",
+        "capacity": "4 человека + 500 кг груза"
+      },
+      "images": [
+        "/images/vehicles/tf-500-hunter-front.jpg",
+        "/images/vehicles/tf-500-hunter-side.jpg",
+        "/images/vehicles/tf-500-hunter-rear.jpg"
+      ],
+      "category": "medium"
+    },
+    {
+      "id": 3,
+      "name": "TF-1000 Titan",
+      "price": 12500000,
+      "description": "Тяжелый вездеход для экстремальных условий. Способен преодолевать водные преграды, болота и снежные заносы. Используется для вахтовых перевозок, спасательных операций и научных экспедиций.",
+      "specs": {
+        "engine": "Cummins 2.8 Turbo Diesel, 280 л.с.",
+        "weight": "2400 кг",
+        "capacity": "8 человек + 1000 кг груза"
+      },
+      "images": [
+        "/images/vehicles/tf-1000-titan-front.jpg",
+        "/images/vehicles/tf-1000-titan-side.jpg",
+        "/images/vehicles/tf-1000-titan-interior.jpg",
+        "/images/vehicles/tf-1000-titan-action.jpg"
+      ],
+      "category": "heavy"
+    }
+  ]
+}
