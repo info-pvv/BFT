@@ -90,16 +90,18 @@ export default async function VehiclePage({ params }: PageProps) {
           {vehicle.images.length > 1 && (
             <div className="grid grid-cols-4 gap-3">
               {vehicle.images.slice(1).map((image, index) => (
-                <div
+                <button
                   key={index}
-                  className="aspect-square bg-zinc-900 border border-zinc-800 rounded overflow-hidden hover:border-orange-500 transition-colors cursor-pointer"
+                  className="aspect-square bg-zinc-900 border border-zinc-800 rounded overflow-hidden hover:border-orange-500 transition-colors"
+                  aria-label={`Показать фото ${index + 2} для ${vehicle.name}`}
+                  title={`Показать фото ${index + 2}`}
                 >
                   <img
                     src={image}
                     alt={`${vehicle.name} - фото ${index + 2}`}
                     className="w-full h-full object-cover"
                   />
-                </div>
+                </button>
               ))}
             </div>
           )}

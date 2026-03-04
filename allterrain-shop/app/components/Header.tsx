@@ -35,7 +35,11 @@ export default function Header() {
           </nav>
 
           {/* Mobile menu button */}
-          <button className="md:hidden text-zinc-300 hover:text-white">
+          <button
+            className="md:hidden text-zinc-300 hover:text-white"
+            aria-label="Открыть меню"
+            title="Открыть меню"
+          >
             <svg
               className="w-6 h-6"
               fill="none"
