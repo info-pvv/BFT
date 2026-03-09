@@ -22,7 +22,7 @@ export default function CatalogClient() {
       : vehiclesData.vehicles.filter((v) => v.category === activeCategory);
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="mx-auto px-4 py-12 max-w-7xl">
       <div className="text-center mb-12">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Вездеход «Борей»
