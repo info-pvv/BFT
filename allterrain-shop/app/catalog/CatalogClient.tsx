@@ -38,7 +38,7 @@ export default function CatalogClient() {
           <button
             key={category.value}
             onClick={() => setActiveCategory(category.value)}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+            className={`px-8 py-4 rounded-lg font-semibold transition-all text-lg ${
               activeCategory === category.value
                 ? 'bg-[#ff6b35] text-white shadow-lg shadow-[#ff6b35]/30'
                 : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
@@ -50,10 +50,10 @@ export default function CatalogClient() {
         {activeCategory !== 'all' && (
           <button
             onClick={() => setActiveCategory('all')}
-            className="px-6 py-3 rounded-lg font-semibold transition-all bg-slate-700 text-slate-300 hover:bg-slate-600 border border-slate-600 flex items-center gap-2"
+            className="px-8 py-4 rounded-lg font-semibold transition-all text-lg bg-slate-700 text-slate-300 hover:bg-slate-600 border border-slate-600 flex items-center gap-2"
             aria-label="Сбросить фильтры"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
             Сбросить
