@@ -1,7 +1,11 @@
 import Link from 'next/link';
 
-interface Specs {
+interface SpecsGroup {
   [key: string]: string;
+}
+
+interface Specs {
+  [key: string]: SpecsGroup;
 }
 
 interface AdditionalOption {
