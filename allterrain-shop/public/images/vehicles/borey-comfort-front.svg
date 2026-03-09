@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#18181b"/>
+  <rect x="0" y="400" width="800" height="200" fill="#27272a"/>
+  <g transform="translate(100, 160)">
+    <rect x="80" y="140" width="520" height="160" rx="20" fill="#3f3f46"/>
+    <rect x="120" y="90" width="420" height="130" rx="15" fill="#52525b"/>
+    <rect x="150" y="110" width="140" height="100" rx="8" fill="#18181b"/>
+    <rect x="310" y="110" width="140" height="100" rx="8" fill="#18181b"/>
+    <circle cx="180" cy="340" r="60" fill="#27272a" stroke="#f97316" stroke-width="5"/>
+    <circle cx="180" cy="340" r="28" fill="#3f3f46"/>
+    <circle cx="500" cy="340" r="60" fill="#27272a" stroke="#f97316" stroke-width="5"/>
+    <circle cx="500" cy="340" r="28" fill="#3f3f46"/>
+    <rect x="560" y="160" width="80" height="100" rx="10" fill="#52525b"/>
+    <path d="M 200 80 L 480 80 L 460 110 L 220 110 Z" fill="#f97316" opacity="0.6"/>
+    <text x="340" y="490" text-anchor="middle" fill="#f97316" font-size="24" font-weight="bold">БОРЕЙ</text>
+    <text x="340" y="520" text-anchor="middle" fill="#71717a" font-size="16">Комфорт — Вид спереди</text>
+  </g>
+</svg>

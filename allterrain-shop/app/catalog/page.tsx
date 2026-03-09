@@ -4,13 +4,13 @@ import { useState } from 'react';
 import VehicleCard from '../components/VehicleCard';
 import vehiclesData from '../../data/vehicles.json';
 
-type Category = 'all' | 'light' | 'medium' | 'heavy';
+type Category = 'all' | 'standard' | 'comfort' | 'premium';
 
 const categories: { value: Category; label: string }[] = [
   { value: 'all', label: 'Все' },
-  { value: 'light', label: 'Лёгкие' },
-  { value: 'medium', label: 'Средние' },
-  { value: 'heavy', label: 'Тяжёлые' },
+  { value: 'standard', label: 'Стандарт' },
+  { value: 'comfort', label: 'Комфорт' },
+  { value: 'premium', label: 'Премиум' },
 ];
 
 export default function CatalogPage() {
@@ -23,9 +23,13 @@ export default function CatalogPage() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
-        Каталог вездеходов
+      <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
+        Вездеход «Борей»
       </h1>
+      <p className="text-zinc-400 text-center mb-8 max-w-2xl mx-auto">
+        Надёжный вездеход на мостах «Волга» с КПП ВАЗ. 
+        Три комплектации на любой бюджет и задачи.
+      </p>
 
       {/* Filters */}
       <div className="flex flex-wrap justify-center gap-3 mb-12">
