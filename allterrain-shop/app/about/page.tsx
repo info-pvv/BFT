@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'О нас — TERRAFORGE',
-  description: 'Производство вездеходов для экстремальных условий с 2010 года',
+  title: 'О компании — Борей на мостах Волга | TERRAFORGE',
+  description: 'Производство вездеходов Борей для экстремальных условий с 2010 года. Надёжная техника на мостах Волга с КПП ВАЗ.',
 };
 
 export default function AboutPage() {
@@ -16,13 +16,13 @@ export default function AboutPage() {
         {/* Hero Section */}
         <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-8 mb-8">
           <p className="text-zinc-300 text-lg leading-relaxed mb-6">
-            <span className="text-orange-500 font-bold">TERRAFORGE</span> — 
-            российский производитель вездеходной техники для экстремальных условий. 
-            С 2010 года мы создаём надёжные машины для работы и отдыха в самых 
+            <span className="text-[#ff6b35] font-bold">TERRAFORGE</span> —
+            российский производитель вездеходной техники для экстремальных условий.
+            С 2010 года мы создаём надёжные машины для работы и отдыха в самых
             суровых уголках планеты.
           </p>
           <p className="text-zinc-300 text-lg leading-relaxed">
-            От арктических пустынь до горных перевалов, от болотистых низменностей 
+            От арктических пустынь до горных перевалов, от болотистых низменностей
             до песчаных дюн — наша техника доказала свою эффективность в любых условиях.
           </p>
         </div>
@@ -30,20 +30,71 @@ export default function AboutPage() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-orange-500 mb-2">14+</div>
+            <div className="text-3xl font-bold text-[#ff6b35] mb-2">14+</div>
             <div className="text-zinc-400 text-sm">лет на рынке</div>
           </div>
           <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-orange-500 mb-2">2500+</div>
+            <div className="text-3xl font-bold text-[#ff6b35] mb-2">2500+</div>
             <div className="text-zinc-400 text-sm">вездеходов выпущено</div>
           </div>
           <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-orange-500 mb-2">85</div>
+            <div className="text-3xl font-bold text-[#ff6b35] mb-2">85</div>
             <div className="text-zinc-400 text-sm">регионов России</div>
           </div>
           <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-orange-500 mb-2">24/7</div>
+            <div className="text-3xl font-bold text-[#ff6b35] mb-2">24/7</div>
             <div className="text-zinc-400 text-sm">сервисная поддержка</div>
+          </div>
+        </div>
+
+        {/* Production Section */}
+        <h2 className="text-2xl font-bold text-white mb-6">Производство</h2>
+        <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-white font-semibold mb-4">Наш завод</h3>
+              <p className="text-zinc-300 text-sm leading-relaxed mb-4">
+                Производственные мощности TERRAFORGE расположены в Вологде.
+                Современное оборудование и квалифицированные специалисты позволяют
+                контролировать каждый этап сборки вездехода.
+              </p>
+              <ul className="space-y-2 text-zinc-400 text-sm">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-[#ff6b35] mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Собственный сборочный цех
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-[#ff6b35] mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Отдел контроля качества
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-[#ff6b35] mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Склад запчастей и комплектующих
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-[#ff6b35] mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Тестовый полигон
+                </li>
+              </ul>
+            </div>
+            <div className="bg-zinc-800 rounded-lg overflow-hidden">
+              <div className="aspect-[4/3] bg-zinc-700 flex items-center justify-center">
+                <svg className="w-16 h-16 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <p className="text-zinc-500 text-sm text-center py-3">
+                Фото производства
+              </p>
+            </div>
           </div>
         </div>
 
@@ -52,9 +103,9 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
             <div className="flex items-start space-x-4">
-              <div className="bg-orange-500/20 p-3 rounded">
+              <div className="bg-[#2d5a4a]/20 p-3 rounded">
                 <svg
-                  className="w-6 h-6 text-orange-500"
+                  className="w-6 h-6 text-[#ff6b35]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -70,7 +121,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-white font-semibold mb-2">Контроль качества</h3>
                 <p className="text-zinc-400 text-sm">
-                  Каждый вездеход проходит многоступенчатое тестирование перед 
+                  Каждый вездеход проходит многоступенчатое тестирование перед
                   отправкой клиенту.
                 </p>
               </div>
@@ -79,9 +130,9 @@ export default function AboutPage() {
 
           <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
             <div className="flex items-start space-x-4">
-              <div className="bg-orange-500/20 p-3 rounded">
+              <div className="bg-[#2d5a4a]/20 p-3 rounded">
                 <svg
-                  className="w-6 h-6 text-orange-500"
+                  className="w-6 h-6 text-[#ff6b35]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -97,7 +148,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-white font-semibold mb-2">Собственное производство</h3>
                 <p className="text-zinc-400 text-sm">
-                  Полный цикл производства на заводе в Москве обеспечивает 
+                  Полный цикл производства на заводе в Вологде обеспечивает
                   контроль каждого этапа.
                 </p>
               </div>
@@ -106,9 +157,9 @@ export default function AboutPage() {
 
           <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
             <div className="flex items-start space-x-4">
-              <div className="bg-orange-500/20 p-3 rounded">
+              <div className="bg-[#2d5a4a]/20 p-3 rounded">
                 <svg
-                  className="w-6 h-6 text-orange-500"
+                  className="w-6 h-6 text-[#ff6b35]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -138,9 +189,9 @@ export default function AboutPage() {
 
           <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
             <div className="flex items-start space-x-4">
-              <div className="bg-orange-500/20 p-3 rounded">
+              <div className="bg-[#2d5a4a]/20 p-3 rounded">
                 <svg
-                  className="w-6 h-6 text-orange-500"
+                  className="w-6 h-6 text-[#ff6b35]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

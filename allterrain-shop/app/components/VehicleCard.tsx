@@ -4,6 +4,12 @@ interface Specs {
   [key: string]: string;
 }
 
+interface AdditionalOption {
+  id: string;
+  name: string;
+  price: number;
+}
+
 interface Vehicle {
   id: string;
   name: string;
@@ -12,10 +18,13 @@ interface Vehicle {
   oldPrice?: number | null;
   category: string;
   inStock: boolean;
+  stockStatus?: string;
+  recommended?: boolean;
   shortDescription: string;
   images: string[];
   specs: Specs;
   highlights: string[];
+  additionalOptions?: AdditionalOption[];
 }
 
 interface VehicleCardProps {
@@ -33,8 +42,8 @@ function formatPrice(price: number): string {
 function getCategoryLabel(category: string): string {
   const labels: Record<string, string> = {
     standard: 'Стандарт',
-    comfort: 'Комфорт',
-    premium: 'Премиум',
+    optima: 'Оптима',
+    profi: 'Профи',
   };
   return labels[category] || category;
 }
@@ -45,21 +54,33 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
     : 0;
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden hover:border-orange-500/50 transition-colors group">
+    <div className="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-[#ff6b35] transition-all group">
       {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-zinc-800">
+      <div className="relative aspect-[4/3] overflow-hidden bg-slate-700">
         <img
           src={vehicle.images[0] || '/images/placeholder.jpg'}
           alt={vehicle.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          loading="lazy"
         />
         
+        {/* Recommended Badge */}
+        {vehicle.recommended && (
+          <div className="absolute top-3 left-3">
+            <span className="bg-[#ff6b35] text-white text-xs font-semibold px-3 py-1 rounded-full">
+              Рекомендуем
+            </span>
+          </div>
+        )}
+
         {/* Category Badge */}
-        <div className="absolute top-3 left-3">
-          <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded uppercase">
-            {getCategoryLabel(vehicle.category)}
-          </span>
-        </div>
+        {!vehicle.recommended && (
+          <div className="absolute top-3 left-3">
+            <span className="bg-slate-900/80 text-white text-xs font-semibold px-3 py-1 rounded uppercase backdrop-blur-sm">
+              {getCategoryLabel(vehicle.category)}
+            </span>
+          </div>
+        )}
 
         {/* Discount Badge */}
         {discount > 0 && (
@@ -73,7 +94,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
         {/* Stock Status */}
         {!vehicle.inStock && (
           <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-            <span className="bg-zinc-800 text-white text-sm font-semibold px-4 py-2 rounded">
+            <span className="bg-slate-800 text-white text-sm font-semibold px-4 py-2 rounded">
               Нет в наличии
             </span>
           </div>
@@ -83,16 +104,16 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
       {/* Content */}
       <div className="p-5">
         <h3 className="text-xl font-bold text-white mb-2">{vehicle.name}</h3>
-        <p className="text-zinc-400 text-sm mb-4">{vehicle.shortDescription}</p>
+        <p className="text-slate-400 text-sm mb-4">{vehicle.shortDescription}</p>
         
         {/* Price */}
         <div className="mb-4">
           <div className="flex items-center gap-3">
-            <span className="text-2xl font-bold text-orange-500">
+            <span className="text-2xl font-bold text-[#ff6b35]">
               {formatPrice(vehicle.price)}
             </span>
             {vehicle.oldPrice && (
-              <span className="text-zinc-500 line-through text-sm">
+              <span className="text-slate-500 line-through text-sm">
                 {formatPrice(vehicle.oldPrice)}
               </span>
             )}
@@ -102,9 +123,9 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
         {/* Key Features */}
         <ul className="space-y-1 mb-4">
           {vehicle.highlights.slice(0, 3).map((feature, index) => (
-            <li key={index} className="flex items-start text-sm text-zinc-300">
+            <li key={index} className="flex items-start text-sm text-slate-300">
               <svg
-                className="w-4 h-4 text-orange-500 mr-2 mt-0.5 flex-shrink-0"
+                className="w-4 h-4 text-[#ff6b35] mr-2 mt-0.5 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -123,7 +144,7 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
 
         <Link
           href={`/catalog/${vehicle.slug}`}
-          className="block w-full bg-zinc-800 hover:bg-orange-500 text-white text-center font-semibold py-3 px-4 rounded transition-colors"
+          className="block w-full bg-slate-700 hover:bg-[#ff6b35] text-white text-center font-semibold py-3 px-4 rounded-lg transition-colors"
         >
           Подробнее
         </Link>

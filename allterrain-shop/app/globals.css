@@ -1,26 +1,298 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Основная цветовая схема */
+  --color-primary: #2d5a4a;        /* Зелёный вездехода - основной */
+  --color-primary-dark: #1a3c27;   /* Тёмно-зелёный */
+  --color-primary-light: #3d7a6a;  /* Светлее зелёный */
+
+  --color-accent: #ff6b35;         /* Оранжевый акцент */
+  --color-accent-hover: #e55a28;   /* Оранжевый при наведении */
+
+  --color-bg-dark: #0f172a;        /* Тёмный фон (slate-900) */
+  --color-bg-card: #1e293b;        /* Фон карточек (slate-800) */
+  --color-bg-elevated: #334155;    /* Приподнятые элементы (slate-700) */
+
+  --color-text-primary: #f8fafc;   /* Основной текст (slate-50) */
+  --color-text-secondary: #94a3b8; /* Вторичный текст (slate-400) */
+  --color-text-muted: #64748b;     /* Приглушённый текст (slate-500) */
+
+  --color-success: #22c55e;        /* Зелёный успех */
+  --color-warning: #f59e0b;        /* Жёлтый предупреждение */
+  --color-error: #ef4444;          /* Красный ошибка */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--color-bg-dark);
+  --color-foreground: var(--color-text-primary);
+
+  /* Кастомные цвета для Tailwind */
+  --color-borey-green: #2d5a4a;
+  --color-borey-orange: #ff6b35;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-dark);
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Утилиты для градиентов */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+}
+
+/* Кастомные отступы для карточек */
+.section-gap-large {
+  margin-bottom: 80px;
+}
+
+.card-grid-gap {
+  gap: 32px;
+}
+
+.card-grid-gap-small {
+  gap: 24px;
+}
+
+.nav-gap {
+  gap: 48px;
+}
+
+/* Отступы между секциями */
+.section-spacing {
+  margin-top: 64px;
+  margin-bottom: 64px;
+}
+
+.gradient-hero {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, var(--color-bg-dark) 100%);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Стили для скроллбара */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-elevated);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-light);
+}
+
+/* Фокус для доступности */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Стили для выделенного текста */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-text-primary);
+}
+
+/* Базовые стили ссылок */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Стили для кнопок */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  background: var(--color-accent);
+  color: var(--color-text-primary);
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  transition: all 0.2s ease;
+  border: 1px solid var(--color-bg-elevated);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+}
+
+/* Карточки */
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-bg-elevated);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+}
+
+/* Таблицы */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-styled th,
+.table-styled td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-bg-elevated);
+}
+
+.table-styled th {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.table-styled tr:last-child td {
+  border-bottom: none;
+}
+
+/* Формы */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-bg-elevated);
+  border-radius: 0.5rem;
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.input-field::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Бейджи */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.badge-primary {
+  background: var(--color-primary);
+  color: var(--color-text-primary);
+}
+
+.badge-accent {
+  background: var(--color-accent);
+  color: var(--color-text-primary);
+}
+
+.badge-success {
+  background: rgba(34, 197, 94, 0.2);
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+}
+
+/* Разделители секций */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-bg-elevated), transparent);
+  margin: 4rem 0;
+}
+
+/* Контейнер */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
 }

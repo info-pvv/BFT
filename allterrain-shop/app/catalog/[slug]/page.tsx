@@ -31,13 +31,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${vehicle.name} — Купить вездеход Боре | TERRAFORGE`,
+    title: `${vehicle.name} — Купить вездеход Борей | TERRAFORGE`,
     description: vehicle.description,
     openGraph: {
       title: `${vehicle.name} — TERRAFORGE`,
       description: vehicle.description,
       images: vehicle.images.map((img) => img),
-      type: 'product',
+      type: 'website',
     },
   };
 }
@@ -64,15 +64,15 @@ export default async function VehiclePage({ params }: PageProps) {
     <div className="container mx-auto px-4 py-12">
       {/* Breadcrumb */}
       <nav className="text-sm mb-8">
-        <ol className="flex items-center space-x-2 text-zinc-400">
+        <ol className="flex items-center space-x-2 text-slate-400">
           <li>
-            <a href="/" className="hover:text-orange-500 transition-colors">
+            <a href="/" className="hover:text-[#ff6b35] transition-colors">
               Главная
             </a>
           </li>
           <li>/</li>
           <li>
-            <a href="/catalog" className="hover:text-orange-500 transition-colors">
+            <a href="/catalog" className="hover:text-[#ff6b35] transition-colors">
               Каталог
             </a>
           </li>
@@ -84,11 +84,13 @@ export default async function VehiclePage({ params }: PageProps) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Gallery */}
         <div>
-          <div className="aspect-[4/3] bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden mb-4">
+          <div className="aspect-[4/3] bg-slate-800 border border-slate-700 rounded-xl overflow-hidden mb-4">
             <img
               src={vehicle.images[0] || '/images/placeholder.jpg'}
               alt={vehicle.name}
               className="w-full h-full object-cover"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
           {vehicle.images.length > 1 && (
@@ -96,7 +98,7 @@ export default async function VehiclePage({ params }: PageProps) {
               {vehicle.images.slice(1).map((image, index) => (
                 <button
                   key={index}
-                  className="aspect-square bg-zinc-900 border border-zinc-800 rounded overflow-hidden hover:border-orange-500 transition-colors"
+                  className="aspect-square bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-[#ff6b35] transition-colors"
                   aria-label={`Показать фото ${index + 2} для ${vehicle.name}`}
                   title={`Показать фото ${index + 2}`}
                 >
@@ -104,6 +106,7 @@ export default async function VehiclePage({ params }: PageProps) {
                     src={image}
                     alt={`${vehicle.name} - фото ${index + 2}`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </button>
               ))}
@@ -113,15 +116,15 @@ export default async function VehiclePage({ params }: PageProps) {
 
         {/* Info */}
         <div>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded uppercase">
+          <div className="flex items-center gap-3 mb-4 flex-wrap">
+            <span className="bg-[#1a3c27] text-white text-xs font-semibold px-3 py-1 rounded uppercase">
               {vehicle.category === 'standard' && 'Стандарт'}
-              {vehicle.category === 'comfort' && 'Комфорт'}
-              {vehicle.category === 'premium' && 'Премиум'}
+              {vehicle.category === 'optima' && 'Оптима'}
+              {vehicle.category === 'profi' && 'Профи'}
             </span>
             {vehicle.inStock ? (
               <span className="bg-green-900/50 text-green-400 text-xs font-semibold px-3 py-1 rounded border border-green-800">
-                В наличии
+                {vehicle.stockStatus || 'В наличии'}
               </span>
             ) : (
               <span className="bg-red-900/50 text-red-400 text-xs font-semibold px-3 py-1 rounded border border-red-800">
@@ -133,6 +136,11 @@ export default async function VehiclePage({ params }: PageProps) {
                 -{discount}%
               </span>
             )}
+            {vehicle.recommended && (
+              <span className="bg-[#ff6b35] text-white text-xs font-semibold px-3 py-1 rounded">
+                Рекомендуем
+              </span>
+            )}
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -140,17 +148,17 @@ export default async function VehiclePage({ params }: PageProps) {
           </h1>
 
           <div className="flex items-baseline gap-4 mb-6">
-            <span className="text-3xl font-bold text-orange-500">
+            <span className="text-3xl font-bold text-[#ff6b35]">
               {formatPrice(vehicle.price)}
             </span>
             {vehicle.oldPrice && (
-              <span className="text-xl text-zinc-500 line-through">
+              <span className="text-xl text-slate-500 line-through">
                 {formatPrice(vehicle.oldPrice)}
               </span>
             )}
           </div>
 
-          <p className="text-zinc-300 mb-8 leading-relaxed">
+          <p className="text-slate-300 mb-8 leading-relaxed">
             {vehicle.description}
           </p>
 
@@ -161,10 +169,10 @@ export default async function VehiclePage({ params }: PageProps) {
               {vehicle.features.map((feature, index) => (
                 <li
                   key={index}
-                  className="flex items-start text-zinc-300 text-sm"
+                  className="flex items-start text-slate-300 text-sm"
                 >
                   <svg
-                    className="w-5 h-5 text-orange-500 mr-2 flex-shrink-0"
+                    className="w-5 h-5 text-[#ff6b35] mr-2 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -183,31 +191,109 @@ export default async function VehiclePage({ params }: PageProps) {
           </div>
 
           {/* Specs Table */}
-          <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6 mb-8">
+          <div className="bg-slate-800 border border-slate-700 rounded-xl p-6 mb-8">
             <h2 className="text-xl font-bold text-white mb-4">Характеристики</h2>
-            <table className="w-full">
-              <tbody>
-                {Object.entries(vehicle.specs).map(([key, value]) => (
-                  <tr key={key} className="border-b border-zinc-800 last:border-0">
-                    <td className="py-3 text-zinc-500 text-sm">{key}</td>
-                    <td className="py-3 text-zinc-300 text-sm text-right font-medium">
-                      {value}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="space-y-6">
+              {Object.entries(vehicle.specs).map(([group, specs]) => (
+                <div key={group}>
+                  <h3 className="text-base font-bold text-[#ff6b35] mb-3">{group}</h3>
+                  <div className="space-y-2">
+                    {Object.entries(specs as Record<string, string>).map(([key, value]) => (
+                      <div key={key} className="flex justify-between py-2 border-b border-slate-700 last:border-0">
+                        <span className="text-slate-400 text-sm">{key}</span>
+                        <span className="text-slate-200 text-sm font-medium text-right">
+                          {value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Package Options */}
+          <div className="bg-slate-800 border border-slate-700 rounded-xl p-6 mb-8">
+            <h2 className="text-xl font-bold text-white mb-4">Варианты комплектации</h2>
+            <div className="grid grid-cols-1 gap-4">
+              {vehiclesData.vehicles.map((v) => (
+                <div
+                  key={v.id}
+                  className={`flex items-center justify-between p-4 rounded-lg border ${
+                    v.slug === vehicle.slug
+                      ? 'border-[#ff6b35] bg-[#ff6b35]/10'
+                      : 'border-slate-700 bg-slate-700/50'
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-12 bg-slate-600 rounded-lg overflow-hidden flex-shrink-0">
+                      <img
+                        src={v.images[0]}
+                        alt={v.name}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-white font-semibold">{v.name.split('—')[1]?.trim() || v.name}</p>
+                      <p className="text-[#ff6b35] font-bold">{formatPrice(v.price)}</p>
+                    </div>
+                  </div>
+                  {v.recommended && (
+                    <span className="bg-[#ff6b35] text-white text-xs font-semibold px-2 py-1 rounded">
+                      Рекомендуем
+                    </span>
+                  )}
+                  {v.slug !== vehicle.slug && (
+                    <a
+                      href={`/catalog/${v.slug}`}
+                      className="bg-slate-700 hover:bg-[#ff6b35] text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors"
+                    >
+                      Выбрать
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Additional Options */}
+          <div className="bg-slate-800 border border-slate-700 rounded-xl p-6 mb-8">
+            <h2 className="text-xl font-bold text-white mb-4">Дополнительные опции</h2>
+            <div className="space-y-3">
+              {vehicle.additionalOptions.map((option) => (
+                <label
+                  key={option.id}
+                  className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+                >
+                  <div className="flex items-center gap-3">
+                    <input
+                      type="checkbox"
+                      name="options"
+                      value={option.id}
+                      className="w-5 h-5 rounded border-slate-600 bg-slate-800 text-[#ff6b35] focus:ring-[#ff6b35]"
+                    />
+                    <span className="text-slate-200">{option.name}</span>
+                  </div>
+                  <span className="text-[#ff6b35] font-semibold">{formatPrice(option.price)}</span>
+                </label>
+              ))}
+            </div>
           </div>
 
           {/* Lead Form */}
-          <LeadForm vehicleName={vehicle.name} endpoint="https://formspree.io/f/YOUR_FORM_ID" />
+          <LeadForm 
+            vehicleName={vehicle.name} 
+            additionalOptions={vehicle.additionalOptions}
+            endpoint="https://formspree.io/f/YOUR_FORM_ID" 
+          />
 
           {/* Download Brochure */}
-          <div className="mt-6 bg-zinc-800/50 border border-zinc-700 rounded-lg p-4 flex items-center justify-between">
+          <div className="mt-6 bg-slate-800/50 border border-slate-700 rounded-xl p-4 flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="bg-orange-500/20 p-3 rounded">
+              <div className="bg-[#ff6b35]/20 p-3 rounded-lg">
                 <svg
-                  className="w-6 h-6 text-orange-500"
+                  className="w-6 h-6 text-[#ff6b35]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -228,13 +314,13 @@ export default async function VehiclePage({ params }: PageProps) {
               </div>
               <div>
                 <p className="text-white font-semibold">Брошюра «Борей»</p>
-                <p className="text-zinc-400 text-sm">PDF, 2.4 MB</p>
+                <p className="text-slate-400 text-sm">PDF, 2.4 MB</p>
               </div>
             </div>
             <a
               href="/brochures/borey.pdf"
               download
-              className="bg-zinc-700 hover:bg-zinc-600 text-white font-medium py-2 px-4 rounded transition-colors flex items-center space-x-2"
+              className="bg-slate-700 hover:bg-slate-600 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center space-x-2"
             >
               <svg
                 className="w-5 h-5"
@@ -259,16 +345,16 @@ export default async function VehiclePage({ params }: PageProps) {
           <LeasingCalculator price={vehicle.price} />
           
           {/* Quick Contacts */}
-          <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+          <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
             <h3 className="text-lg font-bold text-white mb-4">Быстрая связь</h3>
             <div className="space-y-3">
               <a
-                href="tel:+79991234567"
-                className="flex items-center justify-between p-3 bg-zinc-800 rounded hover:bg-zinc-700 transition-colors"
+                href="tel:+79218209245"
+                className="flex items-center justify-between p-3 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <svg
-                    className="w-5 h-5 text-orange-500"
+                    className="w-5 h-5 text-[#ff6b35]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -280,10 +366,10 @@ export default async function VehiclePage({ params }: PageProps) {
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                     />
                   </svg>
-                  <span className="text-white">+7 (999) 123-45-67</span>
+                  <span className="text-white">+7 (921) 820-92-45</span>
                 </div>
                 <svg
-                  className="w-5 h-5 text-zinc-500"
+                  className="w-5 h-5 text-slate-500"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -297,10 +383,10 @@ export default async function VehiclePage({ params }: PageProps) {
                 </svg>
               </a>
               <a
-                href="https://wa.me/79991234567"
+                href="https://wa.me/79218209245"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-3 bg-green-900/30 border border-green-800 rounded hover:bg-green-900/50 transition-colors"
+                className="flex items-center justify-between p-3 bg-green-900/30 border border-green-800 rounded-lg hover:bg-green-900/50 transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <svg
@@ -313,7 +399,7 @@ export default async function VehiclePage({ params }: PageProps) {
                   <span className="text-white">WhatsApp</span>
                 </div>
                 <svg
-                  className="w-5 h-5 text-zinc-500"
+                  className="w-5 h-5 text-slate-500"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -326,6 +412,53 @@ export default async function VehiclePage({ params }: PageProps) {
                   />
                 </svg>
               </a>
+            </div>
+          </div>
+
+          {/* Other Versions */}
+          <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+            <h3 className="text-lg font-bold text-white mb-4">Другие комплектации</h3>
+            <div className="space-y-3">
+              {vehiclesData.vehicles
+                .filter((v) => v.slug !== vehicle.slug)
+                .map((v) => (
+                  <a
+                    key={v.id}
+                    href={`/catalog/${v.slug}`}
+                    className="flex items-center justify-between p-3 bg-slate-700 rounded-lg hover:bg-slate-600 transition-colors group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-slate-600 rounded-lg overflow-hidden">
+                        <img
+                          src={v.images[0]}
+                          alt={v.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-white font-medium text-sm group-hover:text-[#ff6b35] transition-colors">
+                          {v.name.split('—')[1]?.trim() || v.name}
+                        </p>
+                        <p className="text-[#ff6b35] font-semibold text-sm">
+                          {formatPrice(v.price)}
+                        </p>
+                      </div>
+                    </div>
+                    <svg
+                      className="w-5 h-5 text-slate-500 group-hover:text-[#ff6b35] transition-colors"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </a>
+                ))}
             </div>
           </div>
         </div>

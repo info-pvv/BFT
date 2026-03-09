@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Политика конфиденциальности — TERRAFORGE',
-  description: 'Политика обработки персональных данных',
+  title: 'Политика конфиденциальности — Борей | TERRAFORGE',
+  description: 'Политика обработки персональных данных компании TERRAFORGE',
 };
 
 export default function PrivacyPage() {
@@ -85,15 +85,35 @@ export default function PrivacyPage() {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-xl font-bold text-white mb-4">6. Контакты</h2>
+            <h2 className="text-xl font-bold text-white mb-4">6. Согласие на обработку данных</h2>
             <p className="text-zinc-300 mb-4">
-              Для получения информации по вопросам обработки персональных данных, 
+              Заполняя формы на сайте и отправляя свои персональные данные, Пользователь
+              выражает свое согласие на обработку персональных данных.
+            </p>
+            <p className="text-zinc-300 mb-4">
+              Согласие может быть отозвано Пользователем в любой момент путем направления
+              письменного уведомления Оператору.
+            </p>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-xl font-bold text-white mb-4">7. Заключительные положения</h2>
+            <p className="text-zinc-300 mb-4">
+              Политика действует бессрочно до момента ее замены новой версией.
+              Актуальная версия Политики размещена на сайте и доступна по ссылке.
+            </p>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-xl font-bold text-white mb-4">8. Контакты</h2>
+            <p className="text-zinc-300 mb-4">
+              Для получения информации по вопросам обработки персональных данных,
               пожалуйста, свяжитесь с нами:
             </p>
             <ul className="list-disc list-inside text-zinc-300 mt-2 space-y-1">
               <li>Email: privacy@terraforge.ru</li>
-              <li>Телефон: +7 (999) 123-45-67</li>
-              <li>Адрес: Москва, ул. Индустриальная, 42</li>
+              <li>Телефон: +7 (921) 820-92-45</li>
+              <li>Адрес: Вологда, ул. Индустриальная, 42</li>
             </ul>
           </section>
 

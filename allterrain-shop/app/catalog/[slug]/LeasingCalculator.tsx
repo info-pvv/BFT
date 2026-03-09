@@ -30,9 +30,9 @@ export default function LeasingCalculator({ price }: LeasingCalculatorProps) {
   }
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-6">
+    <div id="leasing" className="bg-slate-800 border border-slate-700 rounded-xl p-6">
       <h2 className="text-xl font-bold text-white mb-2">Рассчитать лизинг</h2>
-      <p className="text-zinc-400 text-sm mb-6">
+      <p className="text-slate-400 text-sm mb-6">
         Стоимость техники: {formatCurrency(price)}
       </p>
 
@@ -40,23 +40,21 @@ export default function LeasingCalculator({ price }: LeasingCalculatorProps) {
         {/* Down Payment Slider */}
         <div>
           <div className="flex justify-between mb-2">
-            <label className="text-zinc-300">Первоначальный взнос</label>
-            <span className="text-orange-500 font-semibold">
-              {downPaymentPercent}%
-            </span>
+            <label className="text-slate-300 text-sm">Первоначальный взнос</label>
+            <span className="text-[#ff6b35] font-semibold">{downPaymentPercent}%</span>
           </div>
           <input
             type="range"
-            min="0"
+            min="10"
             max="50"
             step="5"
             value={downPaymentPercent}
             onChange={(e) => setDownPaymentPercent(Number(e.target.value))}
-            className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-orange-500"
+            className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-[#ff6b35]"
           />
-          <div className="flex justify-between mt-1 text-xs text-zinc-500">
-            <span>0%</span>
-            <span>{formatCurrency(downPayment)}</span>
+          <div className="flex justify-between mt-1 text-xs text-slate-500">
+            <span>10%</span>
+            <span className="text-slate-300">{formatCurrency(downPayment)}</span>
             <span>50%</span>
           </div>
         </div>
@@ -64,10 +62,8 @@ export default function LeasingCalculator({ price }: LeasingCalculatorProps) {
         {/* Term Slider */}
         <div>
           <div className="flex justify-between mb-2">
-            <label className="text-zinc-300">Срок лизинга</label>
-            <span className="text-orange-500 font-semibold">
-              {termMonths} мес.
-            </span>
+            <label className="text-slate-300 text-sm">Срок лизинга</label>
+            <span className="text-[#ff6b35] font-semibold">{termMonths} мес.</span>
           </div>
           <input
             type="range"
@@ -76,9 +72,9 @@ export default function LeasingCalculator({ price }: LeasingCalculatorProps) {
             step="12"
             value={termMonths}
             onChange={(e) => setTermMonths(Number(e.target.value))}
-            className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-orange-500"
+            className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-[#ff6b35]"
           />
-          <div className="flex justify-between mt-1 text-xs text-zinc-500">
+          <div className="flex justify-between mt-1 text-xs text-slate-500">
             <span>12 мес.</span>
             <span>36 мес.</span>
             <span>60 мес.</span>
@@ -88,47 +84,45 @@ export default function LeasingCalculator({ price }: LeasingCalculatorProps) {
         {/* Interest Rate Slider */}
         <div>
           <div className="flex justify-between mb-2">
-            <label className="text-zinc-300">Процентная ставка</label>
-            <span className="text-orange-500 font-semibold">
-              {interestRate}%
-            </span>
+            <label className="text-slate-300 text-sm">Процентная ставка</label>
+            <span className="text-[#ff6b35] font-semibold">{interestRate}%</span>
           </div>
           <input
             type="range"
-            min="8"
-            max="20"
-            step="1"
+            min="10"
+            max="15"
+            step="0.5"
             value={interestRate}
             onChange={(e) => setInterestRate(Number(e.target.value))}
-            className="w-full h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-orange-500"
+            className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-[#ff6b35]"
           />
-          <div className="flex justify-between mt-1 text-xs text-zinc-500">
-            <span>8%</span>
-            <span>14%</span>
-            <span>20%</span>
+          <div className="flex justify-between mt-1 text-xs text-slate-500">
+            <span>10%</span>
+            <span>12.5%</span>
+            <span>15%</span>
           </div>
         </div>
       </div>
 
       {/* Results */}
-      <div className="mt-8 pt-6 border-t border-zinc-800">
+      <div className="mt-8 pt-6 border-t border-slate-700">
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div>
-            <p className="text-zinc-500 mb-1">Ежемесячный платёж</p>
-            <p className="text-xl font-bold text-orange-500">
+            <p className="text-slate-500 mb-1">Ежемесячный платёж</p>
+            <p className="text-xl font-bold text-[#ff6b35]">
               {formatCurrency(Math.abs(monthlyPayment))}
             </p>
           </div>
           <div>
-            <p className="text-zinc-500 mb-1">Переплата</p>
+            <p className="text-slate-500 mb-1">Переплата</p>
             <p className="text-xl font-bold text-white">
               {formatCurrency(Math.abs(overpayment))}
             </p>
           </div>
         </div>
-        <div className="mt-4 pt-4 border-t border-zinc-800">
+        <div className="mt-4 pt-4 border-t border-slate-700">
           <div className="flex justify-between">
-            <span className="text-zinc-500">Итого:</span>
+            <span className="text-slate-500">Итого:</span>
             <span className="text-white font-semibold">
               {formatCurrency(totalPayment)}
             </span>
@@ -136,9 +130,12 @@ export default function LeasingCalculator({ price }: LeasingCalculatorProps) {
         </div>
       </div>
 
-      <button className="w-full mt-6 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded transition-colors">
+      <a
+        href="#form"
+        className="block w-full mt-6 bg-[#ff6b35] hover:bg-[#e55a28] !text-white text-center font-semibold py-3 px-4 rounded-lg transition-colors"
+      >
         Оформить заявку на лизинг
-      </button>
+      </a>
     </div>
   );
 }

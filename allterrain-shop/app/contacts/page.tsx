@@ -2,8 +2,8 @@ import LeadForm from '../components/LeadForm';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Контакты — TERRAFORGE',
-  description: 'Свяжитесь с нами для консультации или заказа вездехода',
+  title: 'Контакты — Купить вездеход Борей | TERRAFORGE',
+  description: 'Свяжитесь с нами для консультации или заказа вездехода Борей. Телефон: +7 (921) 820-92-45, адрес: Вологда, ул. Индустриальная, 42',
 };
 
 export default function ContactsPage() {
@@ -24,9 +24,9 @@ export default function ContactsPage() {
             <div className="space-y-6">
               {/* Phone */}
               <div className="flex items-start space-x-4">
-                <div className="bg-orange-500/20 p-3 rounded">
+                <div className="bg-[#2d5a4a]/20 p-3 rounded">
                   <svg
-                    className="w-6 h-6 text-orange-500"
+                    className="w-6 h-6 text-[#ff6b35]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -42,10 +42,10 @@ export default function ContactsPage() {
                 <div>
                   <p className="text-zinc-500 text-sm mb-1">Телефон</p>
                   <a
-                    href="tel:+79991234567"
-                    className="text-white text-lg hover:text-orange-500 transition-colors"
+                    href="tel:+79218209245"
+                    className="text-white text-lg hover:text-[#ff6b35] transition-colors"
                   >
-                    +7 (999) 123-45-67
+                    +7 (921) 820-92-45
                   </a>
                   <p className="text-zinc-400 text-sm">Пн-Пт: 9:00 - 18:00</p>
                 </div>
@@ -53,9 +53,9 @@ export default function ContactsPage() {
 
               {/* Email */}
               <div className="flex items-start space-x-4">
-                <div className="bg-orange-500/20 p-3 rounded">
+                <div className="bg-[#2d5a4a]/20 p-3 rounded">
                   <svg
-                    className="w-6 h-6 text-orange-500"
+                    className="w-6 h-6 text-[#ff6b35]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -72,7 +72,7 @@ export default function ContactsPage() {
                   <p className="text-zinc-500 text-sm mb-1">Email</p>
                   <a
                     href="mailto:info@terraforge.ru"
-                    className="text-white text-lg hover:text-orange-500 transition-colors"
+                    className="text-white text-lg hover:text-[#ff6b35] transition-colors"
                   >
                     info@terraforge.ru
                   </a>
@@ -84,9 +84,9 @@ export default function ContactsPage() {
 
               {/* Address */}
               <div className="flex items-start space-x-4">
-                <div className="bg-orange-500/20 p-3 rounded">
+                <div className="bg-[#2d5a4a]/20 p-3 rounded">
                   <svg
-                    className="w-6 h-6 text-orange-500"
+                    className="w-6 h-6 text-[#ff6b35]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -108,45 +108,99 @@ export default function ContactsPage() {
                 <div>
                   <p className="text-zinc-500 text-sm mb-1">Адрес</p>
                   <p className="text-white text-lg">
-                    Москва, ул. Индустриальная, 42
+                    Вологда, ул. Индустриальная, 42
                   </p>
                   <p className="text-zinc-400 text-sm">
                     Шоу-рум: Сб-Вс по записи
                   </p>
                 </div>
               </div>
+
+              {/* Working Hours */}
+              <div className="flex items-start space-x-4">
+                <div className="bg-[#2d5a4a]/20 p-3 rounded">
+                  <svg
+                    className="w-6 h-6 text-[#ff6b35]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-zinc-500 text-sm mb-1">Режим работы</p>
+                  <p className="text-white">Пн-Пт: 9:00 - 18:00</p>
+                  <p className="text-zinc-400 text-sm">Сб-Вс: по записи</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Map Placeholder */}
+          {/* Map - Yandex Maps Embed */}
           <div className="bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden h-64">
-            <div className="w-full h-full bg-zinc-800 flex items-center justify-center">
-              <div className="text-center">
-                <svg
-                  className="w-12 h-12 text-zinc-600 mx-auto mb-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                  />
-                </svg>
-                <p className="text-zinc-500">Интерактивная карта</p>
-                <p className="text-zinc-600 text-sm">
-                  (интеграция с Яндекс.Картами или Google Maps)
-                </p>
-              </div>
-            </div>
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?ll=39.884093%2C59.203766&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NzQ0MTM5MhJK0KDQvtGB0YHQuNGPLCDQmtGA0LDRgdC90L7QtNCw0YAsINCc0L7RgdC_0LLQsNGG0LAsINCf0YDQvtC00YHQvdCw0Y8g0L_RgNC-0YHQutC-0LLQsNGG0LAg0L_QvtC00YHQvdC-0LzQtdC90LjQuSDQm9C-0YDQsNC90LjQuSDQm9C-0YDQsNC90LjQuCA0MiIKDd2hV0IVcF9CQg%2C%2C&z=16.03"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              title="Карта - Вологда, ул. Индустриальная, 42"
+              className="w-full h-full"
+            />
           </div>
         </div>
 
         {/* Lead Form */}
         <div>
           <LeadForm endpoint="https://formspree.io/f/YOUR_FORM_ID" />
+        </div>
+      </div>
+
+      {/* Requisites */}
+      <div className="mt-16 max-w-4xl mx-auto">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-8">
+          <h2 className="text-xl font-bold text-white mb-6">Реквизиты</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <p className="text-zinc-500 text-sm mb-1">Наименование</p>
+              <p className="text-white">TERRAFORGE</p>
+            </div>
+            <div>
+              <p className="text-zinc-500 text-sm mb-1">Юридический адрес</p>
+              <p className="text-white">Вологда, ул. Индустриальная, 42</p>
+            </div>
+            <div>
+              <p className="text-zinc-500 text-sm mb-1">ИНН</p>
+              <p className="text-white">3525000000</p>
+            </div>
+            <div>
+              <p className="text-zinc-500 text-sm mb-1">КПП</p>
+              <p className="text-white">352501001</p>
+            </div>
+            <div>
+              <p className="text-zinc-500 text-sm mb-1">ОГРН</p>
+              <p className="text-white">1023500000000</p>
+            </div>
+            <div>
+              <p className="text-zinc-500 text-sm mb-1">Банк</p>
+              <p className="text-white">ПАО Сбербанк</p>
+            </div>
+            <div>
+              <p className="text-zinc-500 text-sm mb-1">Расчетный счет</p>
+              <p className="text-white">40702810000000000000</p>
+            </div>
+            <div>
+              <p className="text-zinc-500 text-sm mb-1">Корр. счет</p>
+              <p className="text-white">30101810000000000000</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
