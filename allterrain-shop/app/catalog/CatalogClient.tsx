@@ -26,9 +26,8 @@ export default function CatalogClient() {
       <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
         Вездеход «Борей»
       </h1>
-      <p className="text-slate-400 text-center mb-8 max-w-3xl mx-auto">
-        Это не просто транспорт, а ваш пропуск в самые труднодоступные уголки природы.
-        Создан для тех, кто ценит свободу, надежность и практичность в условиях полного бездорожья.
+      <p className="text-slate-400 text-center mb-12 max-w-3xl mx-auto">
+        Это не просто транспорт, а ваш пропуск в самые труднодоступные уголки природы. Создан для тех, кто ценит свободу, надежность и практичность в условиях полного бездорожья.
       </p>
 
       {/* Filters */}
