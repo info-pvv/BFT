@@ -2,7 +2,7 @@
 
 Современный сайт для продажи вездеходов «Борей» с двигателями Lifan/Loncin. Разработан на Next.js 16 с использованием Tailwind CSS 4.
 
-**Демо:** [allterrain-shop.vercel.app](https://allterrain-shop.vercel.app)
+**Демо:** [allterrain.vercel.app](https://allterrain.vercel.app/)
 
 ## 🚀 Особенности
 
