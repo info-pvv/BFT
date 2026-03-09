@@ -257,7 +257,7 @@ export default async function VehiclePage({ params }: PageProps) {
           <LeadForm 
             vehicleName={vehicle.name} 
             additionalOptions={vehicle.additionalOptions}
-            endpoint="https://formspree.io/f/YOUR_FORM_ID" 
+            endpoint="https://formspree.io/f/mlgpglnd" 
           />
 
           {/* Download Brochure */}

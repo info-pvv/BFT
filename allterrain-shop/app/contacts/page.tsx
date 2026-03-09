@@ -159,7 +159,7 @@ export default function ContactsPage() {
 
         {/* Lead Form */}
         <div>
-          <LeadForm endpoint="https://formspree.io/f/YOUR_FORM_ID" />
+          <LeadForm endpoint="https://formspree.io/f/mlgpglnd" />
         </div>
       </div>
 
