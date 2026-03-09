@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import vehiclesData from '../../../data/vehicles.json';
@@ -48,7 +51,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function VehiclePage({ params }: PageProps) {
+export default function VehiclePage({ params }: PageProps) {
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
   const { slug } = await params;
   const vehicle = getVehicle(slug);
 
@@ -59,6 +64,10 @@ export default async function VehiclePage({ params }: PageProps) {
   const discount = vehicle.oldPrice
     ? Math.round(((vehicle.oldPrice - vehicle.price) / vehicle.oldPrice) * 100)
     : 0;
+
+  const handleImageClick = (index: number) => {
+    setSelectedImageIndex(index);
+  };
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -86,7 +95,7 @@ export default async function VehiclePage({ params }: PageProps) {
         <div>
           <div className="aspect-[4/3] bg-slate-800 border border-slate-700 rounded-xl overflow-hidden mb-4">
             <img
-              src={vehicle.images[0] || '/images/placeholder.jpg'}
+              src={vehicle.images[selectedImageIndex] || '/images/placeholder.jpg'}
               alt={vehicle.name}
               className="w-full h-full object-cover"
               loading="eager"
@@ -95,16 +104,21 @@ export default async function VehiclePage({ params }: PageProps) {
           </div>
           {vehicle.images.length > 1 && (
             <div className="grid grid-cols-4 gap-3">
-              {vehicle.images.slice(1).map((image, index) => (
+              {vehicle.images.map((image, index) => (
                 <button
                   key={index}
-                  className="aspect-square bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-[#ff6b35] transition-colors"
-                  aria-label={`Показать фото ${index + 2} для ${vehicle.name}`}
-                  title={`Показать фото ${index + 2}`}
+                  onClick={() => handleImageClick(index)}
+                  className={`aspect-square bg-slate-800 border rounded-xl overflow-hidden transition-colors ${
+                    selectedImageIndex === index
+                      ? 'border-[#ff6b35] ring-2 ring-[#ff6b35]/50'
+                      : 'border-slate-700 hover:border-[#ff6b35]'
+                  }`}
+                  aria-label={`Показать фото ${index + 1} для ${vehicle.name}`}
+                  title={`Показать фото ${index + 1}`}
                 >
                   <img
                     src={image}
-                    alt={`${vehicle.name} - фото ${index + 2}`}
+                    alt={`${vehicle.name} - фото ${index + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
