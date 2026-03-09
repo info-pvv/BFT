@@ -22,12 +22,12 @@ export default function CatalogClient() {
       : vehiclesData.vehicles.filter((v) => v.category === activeCategory);
 
   return (
-    <div className="mx-auto px-4 py-12 max-w-7xl">
+    <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Вездеход «Борей»
         </h1>
-        <p className="text-slate-400 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-slate-400 max-w-3xl mx-auto leading-relaxed text-center">
           Это не просто транспорт, а ваш пропуск в самые труднодоступные уголки природы. Создан для тех, кто ценит свободу, надежность и практичность в условиях полного бездорожья.
         </p>
       </div>
