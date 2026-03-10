@@ -71,7 +71,7 @@
         "/images/vehicles/borey_version2-common.png",
         "/images/vehicles/borey_version2-front.png",
         "/images/vehicles/borey_version2-side.png",
-        "/images/vehicles/borey_version2-common1.png"
+        "/images/vehicles/borey_version2-rear.png"
       ],
       "specs": {
         "Ходовая часть и трансмиссия": {
@@ -93,7 +93,6 @@
       },
       "features": [
         "Два полноценных сиденья",
-        "Багажник на крыше",
         "Расширенные рундуки",
         "Улучшенная эргономика"
       ],
@@ -122,10 +121,10 @@
       "description": "Максимальная комплектация со всем необходимым оборудованием. Закрытый кузов, отопитель, полноценная приборная панель. Для тех, кто ценит комфорт и готов к любым условиям.",
       "shortDescription": "Максимальная комплектация с закрытым кузовом",
       "images": [
-        "/images/vehicles/borey_version2-common2.png",
-        "/images/vehicles/borey-front-big.png",
-        "/images/vehicles/borey-side-right.png",
-        "/images/vehicles/borrey-common.png"
+        "/images/vehicles/borey-version3-front.jpg",
+        "/images/vehicles/borey-version3-side.jpg",
+        "/images/vehicles/borey-version3-right.jpg",
+        "/images/vehicles/borey-version3-left.jpg"
       ],
       "specs": {
         "Ходовая часть и трансмиссия": {
