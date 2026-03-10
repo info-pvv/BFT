@@ -40,16 +40,16 @@ export default function Header() {
           </nav>
 
           {/* Phone and CTA */}
-          <div className="hidden lg:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center gap-8">
             <a
               href="tel:+79218209245"
-              className="text-white font-semibold hover:text-[#ff6b35] transition-colors"
+              className="text-white font-semibold hover:text-[#ff6b35] transition-colors whitespace-nowrap"
             >
               +7 (921) 820-92-45
             </a>
             <Link
               href="/contacts"
-              className="bg-[#ff6b35] hover:bg-[#e55a28] !text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+              className="bg-[#ff6b35] hover:bg-[#e55a28] !text-white font-semibold py-2 px-4 rounded-lg transition-colors whitespace-nowrap"
             >
               Заказать звонок
             </Link>
