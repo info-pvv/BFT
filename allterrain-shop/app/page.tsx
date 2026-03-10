@@ -320,7 +320,7 @@ export default function HomePage() {
           <div className="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-[#ff6b35] transition-all">
             <div className="aspect-[4/3] bg-slate-700 overflow-hidden">
               <img
-                src="/images/vehicles/borey_version2-common2.png"
+                src="/images/vehicles/borey-version3-front.jpg"
                 alt="Борей Профи"
                 className="w-full h-full object-cover"
                 loading="lazy"
